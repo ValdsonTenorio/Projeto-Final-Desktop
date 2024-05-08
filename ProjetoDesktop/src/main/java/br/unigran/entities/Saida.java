@@ -1,8 +1,13 @@
 package br.unigran.entities;
 
+import javax.persistence.ManyToOne;
+
 public class Saida {
     private String motidoSaida;
     private String dataSaida;
+
+    @ManyToOne
+    private Saida saida;
 
     public Saida(String motidoSaida, String dataSaida) {
         this.motidoSaida = motidoSaida;

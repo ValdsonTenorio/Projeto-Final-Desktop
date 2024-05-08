@@ -1,18 +1,30 @@
 
 package br.unigran.entities;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
 public class Produto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codProd;
+    @Column(length = 50)
     private String marca;
+    @Column(length = 50)
     private String categoria;
+    @Column(length = 50)
     private String fornecedor;
+    @Column(length = 50)
     private String validadeProd;
     private int qtdeRecebida;
     private int qtdeMinEstoque;
     private Double valorProd;
     private Double valorVenda;
+
+    @ManyToOne
+    private Produto produto;
 
     public Produto(Long codProd, String marca, String categoria, String fornecedor, String validadeProd, int qtdeRecebida, int qtdeMinEstoque, Double valorProd, Double valorVenda) {
         this.codProd = codProd;
@@ -24,6 +36,10 @@ public class Produto {
         this.qtdeMinEstoque = qtdeMinEstoque;
         this.valorProd = valorProd;
         this.valorVenda = valorVenda;
+    }
+
+    public Produto() {
+
     }
 
     public Long getCodProd() {

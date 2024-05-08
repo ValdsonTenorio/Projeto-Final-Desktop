@@ -5,18 +5,29 @@
 package br.unigran.entities;
 
 import javax.persistence.OneToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author valds
  */
 public class Estoque {
+
     private long estoqueAtual;
     private long estoqueAnterior;
-    @OneToMany  
-    public long getEstoqueAtual() {
-        return estoqueAtual;
-    }
+
+    @OneToMany(mappedBy = "funcionario")
+    private Set<Funcionario> funcionarios = new HashSet<>();
+
+    @OneToMany(mappedBy = "produto")
+    private Set<Produto> produtos = new HashSet<>();
+
+    @OneToMany(mappedBy = "entrada")
+    private Set<Entrada> entradas = new HashSet<>();
+
+    @OneToMany(mappedBy = "saida")
+    private Set<Saida> saidas = new HashSet<>();
 
     public void setEstoqueAtual(long estoqueAtual) {
         this.estoqueAtual = estoqueAtual;

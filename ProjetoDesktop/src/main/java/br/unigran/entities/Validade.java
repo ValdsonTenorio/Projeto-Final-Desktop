@@ -3,6 +3,8 @@ package br.unigran.entities;
 
 import javax.persistence.Column;
 import javax.persistence.OneToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -11,10 +13,9 @@ import javax.persistence.OneToMany;
 public class Validade{
     @Column(length = 30)
     private String data_fabricacao;
-    @OneToMany
-    public String getData_fabricacao() {
-        return data_fabricacao;
-    }
+
+    @OneToMany(mappedBy = "produto")
+    private Set<Produto> produtos = new HashSet<>();
 
     public void setData_fabricacao(String data_fabricacao) {
         this.data_fabricacao = data_fabricacao;

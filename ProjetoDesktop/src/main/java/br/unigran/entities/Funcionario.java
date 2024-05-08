@@ -3,12 +3,8 @@ package br.unigran.entities;
 
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import java.util.HashSet;
+import javax.persistence.*;
 
 /**
  *
@@ -34,10 +30,9 @@ public class Funcionario implements Serializable{
   private String funcao;
   private String login;
   private String senha;
-  @ManyToMany
-    public long getId() {
-        return id;
-    }
+
+  @ManyToOne
+  private Funcionario funcionario;
 
     public void setId(long id) {
         this.id = id;
