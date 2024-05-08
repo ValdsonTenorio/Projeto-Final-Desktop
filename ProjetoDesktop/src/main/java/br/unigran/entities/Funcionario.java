@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.unigran.entities;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +18,9 @@ import javax.persistence.ManyToMany;
 public class Funcionario implements Serializable{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+=======
+public class Funcionario {
+>>>>>>> criacaoEntidadesEstoqueEValidade
   private long id;
   @Column(length = 50)
   private String nome;
