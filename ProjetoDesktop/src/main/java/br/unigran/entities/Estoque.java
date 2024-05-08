@@ -4,14 +4,16 @@
  */
 package br.unigran.entities;
 
+import javax.persistence.OneToMany;
+
 /**
  *
  * @author valds
  */
 public class Estoque {
-      private long estoqueAtual;
-      private long estoqueAnterior;
-
+    private long estoqueAtual;
+    private long estoqueAnterior;
+    @OneToMany  
     public long getEstoqueAtual() {
         return estoqueAtual;
     }
