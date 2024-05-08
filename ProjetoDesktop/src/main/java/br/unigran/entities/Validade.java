@@ -1,16 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.unigran.entities;
+
+
+import javax.persistence.Column;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author valds
  */
-public class Validade {
+public class Validade{
+    @Column(length = 30)
     private String data_fabricacao;
-
+    @OneToMany
     public String getData_fabricacao() {
         return data_fabricacao;
     }
