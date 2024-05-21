@@ -4,11 +4,9 @@
  */
 package br.unigran.persistence;
 
-import br.unigran.entities.Funcionario;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 /**
@@ -56,9 +54,9 @@ public class Dao {
         return em.createNativeQuery("select o from "+c.getSimpleName()+" o where 1=1 "+where)
                 .getResultList();
     }
-
     void remove(Integer id, Class clazz) {
         em.getTransaction().begin();
-        em.remove();
-        em.getTransaction().commit();    }
+        em.remove(id);
+        em.getTransaction().commit();    
+    }
 }
