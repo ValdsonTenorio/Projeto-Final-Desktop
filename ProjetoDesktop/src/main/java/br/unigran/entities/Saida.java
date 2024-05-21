@@ -1,8 +1,12 @@
 package br.unigran.entities;
 
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+@Entity
 public class Saida {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String motidoSaida;
     private String dataSaida;
 
@@ -12,6 +16,10 @@ public class Saida {
     public Saida(String motidoSaida, String dataSaida) {
         this.motidoSaida = motidoSaida;
         this.dataSaida = dataSaida;
+    }
+
+    public Saida() {
+
     }
 
     public String getMotidoSaida() {

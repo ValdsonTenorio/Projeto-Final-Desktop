@@ -1,4 +1,3 @@
-
 package br.unigran.entities;
 
 import javax.persistence.*;
@@ -121,7 +120,7 @@ public class Produto {
     public void alterar(){
 
     }
-    
+
     public void buscar(){
 
     }

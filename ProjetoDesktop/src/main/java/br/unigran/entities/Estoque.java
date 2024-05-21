@@ -4,7 +4,7 @@
  */
 package br.unigran.entities;
 
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,8 +12,11 @@ import java.util.Set;
  *
  * @author valds
  */
+@Entity
 public class Estoque {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private long estoqueAtual;
     private long estoqueAnterior;
 
@@ -40,21 +43,21 @@ public class Estoque {
     public void setEstoqueAnterior(long estoqueAnterior) {
         this.estoqueAnterior = estoqueAnterior;
     }
-      
-      
-      public void acessar(){
-          
-      }
-      public void entrada(){
-          
-      }
-      public void buscar(){
-          
-      }
-      public void saida(){
-          
-      }
-      public void listar(){
-          
-      }
+
+
+    public void acessar(){
+
+    }
+    public void entrada(){
+
+    }
+    public void buscar(){
+
+    }
+    public void saida(){
+
+    }
+    public void listar(){
+
+    }
 }

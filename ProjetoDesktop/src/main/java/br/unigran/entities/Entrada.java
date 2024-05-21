@@ -1,9 +1,12 @@
 package br.unigran.entities;
 
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+@Entity
 public class Entrada {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     @Column(length = 50)
     private String dataEntrada;
     @Column(length = 50)
@@ -18,6 +21,10 @@ public class Entrada {
         this.dataEntrada = dataEntrada;
         this.notaFiscalAssoc = notaFiscalAssoc;
         this.secao = secao;
+    }
+
+    public Entrada() {
+
     }
 
     public String getDataEntrada() {
