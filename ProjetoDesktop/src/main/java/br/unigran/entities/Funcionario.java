@@ -3,12 +3,8 @@ package br.unigran.entities;
 
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import java.util.HashSet;
+import javax.persistence.*;
 
 /**
  *
@@ -16,28 +12,27 @@ import javax.persistence.ManyToMany;
  */
 @Entity
 public class Funcionario implements Serializable{
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
-  @Column(length = 50)
-  private String nome;
-  @Column(length = 20)
-  private String cpf;
-  private String dataNasc;
-  private String endereco;
-  private String sexo;
-  private String telefone;
-  private String email;
-  private String dataAdmissao;
-  private float salario;
-  private String cargo;
-  private String funcao;
-  private String login;
-  private String senha;
-  @ManyToMany
-    public long getId() {
-        return id;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(length = 50)
+    private String nome;
+    @Column(length = 20)
+    private String cpf;
+    private String dataNasc;
+    private String endereco;
+    private String sexo;
+    private String telefone;
+    private String email;
+    private String dataAdmissao;
+    private float salario;
+    private String cargo;
+    private String funcao;
+    private String login;
+    private String senha;
+
+    @ManyToOne
+    private Funcionario funcionario;
 
     public void setId(long id) {
         this.id = id;
@@ -147,21 +142,21 @@ public class Funcionario implements Serializable{
         this.senha = senha;
     }
     public void cadastrar(){
-        
+
     }
     public void alterar(){
-        
+
     }
     public void efetuaLogin(){
-        
+
     }
     public void permissao(){
-        
+
     }
     public void listar(){
-        
+
     }
     public void buscar(){
-        
+
     }
 }

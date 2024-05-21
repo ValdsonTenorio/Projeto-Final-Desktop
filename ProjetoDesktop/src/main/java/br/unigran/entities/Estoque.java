@@ -4,19 +4,33 @@
  */
 package br.unigran.entities;
 
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author valds
  */
+@Entity
 public class Estoque {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private long estoqueAtual;
     private long estoqueAnterior;
-    @OneToMany  
-    public long getEstoqueAtual() {
-        return estoqueAtual;
-    }
+
+    @OneToMany(mappedBy = "funcionario")
+    private Set<Funcionario> funcionarios = new HashSet<>();
+
+    @OneToMany(mappedBy = "produto")
+    private Set<Produto> produtos = new HashSet<>();
+
+    @OneToMany(mappedBy = "entrada")
+    private Set<Entrada> entradas = new HashSet<>();
+
+    @OneToMany(mappedBy = "saida")
+    private Set<Saida> saidas = new HashSet<>();
 
     public void setEstoqueAtual(long estoqueAtual) {
         this.estoqueAtual = estoqueAtual;
@@ -29,21 +43,21 @@ public class Estoque {
     public void setEstoqueAnterior(long estoqueAnterior) {
         this.estoqueAnterior = estoqueAnterior;
     }
-      
-      
-      public void acessar(){
-          
-      }
-      public void entrada(){
-          
-      }
-      public void buscar(){
-          
-      }
-      public void saida(){
-          
-      }
-      public void listar(){
-          
-      }
+
+
+    public void acessar(){
+
+    }
+    public void entrada(){
+
+    }
+    public void buscar(){
+
+    }
+    public void saida(){
+
+    }
+    public void listar(){
+
+    }
 }

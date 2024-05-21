@@ -59,6 +59,6 @@ public class Dao {
 
     void remove(Integer id, Class clazz) {
         em.getTransaction().begin();
-        em.remove();
+        em.remove(id);
         em.getTransaction().commit();    }
 }
