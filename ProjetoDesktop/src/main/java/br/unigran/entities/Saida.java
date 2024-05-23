@@ -7,14 +7,14 @@ public class Saida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String motidoSaida;
+    private String motivoSaida;
     private String dataSaida;
 
     @ManyToOne
     private Saida saida;
 
-    public Saida(String motidoSaida, String dataSaida) {
-        this.motidoSaida = motidoSaida;
+    public Saida(String motivoSaida, String dataSaida) {
+        this.motivoSaida = motivoSaida;
         this.dataSaida = dataSaida;
     }
 
@@ -22,12 +22,28 @@ public class Saida {
 
     }
 
-    public String getMotidoSaida() {
-        return motidoSaida;
+    public long getId() {
+        return id;
     }
 
-    public void setMotidoSaida(String motidoSaida) {
-        this.motidoSaida = motidoSaida;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Saida getSaida() {
+        return saida;
+    }
+
+    public void setSaida(Saida saida) {
+        this.saida = saida;
+    }
+
+    public String getMotivoSaida() {
+        return motivoSaida;
+    }
+
+    public void setMotivoSaida(String motivoSaida) {
+        this.motivoSaida = motivoSaida;
     }
 
     public String getDataSaida() {

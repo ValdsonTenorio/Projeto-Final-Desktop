@@ -1,4 +1,4 @@
-package br.unigran.controlerDTO;
+package br.unigran.controllerDTO;
 
 import br.unigran.entities.Funcionario;
 
