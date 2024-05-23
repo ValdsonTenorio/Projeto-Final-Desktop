@@ -36,6 +36,10 @@ public class Estoque {
         this.estoqueAtual = estoqueAtual;
     }
 
+    public long getEstoqueAtual() {
+        return estoqueAtual;
+    }
+
     public long getEstoqueAnterior() {
         return estoqueAnterior;
     }

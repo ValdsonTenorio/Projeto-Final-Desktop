@@ -20,6 +20,11 @@ public class EstoqueImpl implements EstoqueDao {
     }
 
     @Override
+    public List<Estoque> listar(Estoque builder) throws NoResultException {
+        return null;
+    }
+
+    @Override
     public List<Estoque> listar(Funcionario builder) throws NoResultException {
         TypedQuery<Estoque> query = Dao.getInstace().getEm()
                 .createQuery("SELECT e FROM Estoque e ", Estoque.class);
