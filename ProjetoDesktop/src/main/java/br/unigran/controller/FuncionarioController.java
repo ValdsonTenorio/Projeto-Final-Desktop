@@ -1,6 +1,6 @@
 package br.unigran.controller;
 
-import br.unigran.controlerDTO.FuncionarioDTO;
+import br.unigran.controllerDTO.FuncionarioDTO;
 import br.unigran.dao.FuncionarioDao;
 import br.unigran.impl.FuncionarioImpl;
 
