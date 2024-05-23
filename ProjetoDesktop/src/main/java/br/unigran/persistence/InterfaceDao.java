@@ -4,6 +4,8 @@
  */
 package br.unigran.persistence;
 
+import br.unigran.entities.Funcionario;
+
 import javax.persistence.NoResultException;
 import java.util.List;
 
@@ -26,5 +28,5 @@ public interface InterfaceDao<ID, T> {
 
     T listarId(ID id) throws NoResultException;
 
-    List<T> listar() throws NoResultException;
+    List<T> listar(Funcionario builder) throws NoResultException;
 }

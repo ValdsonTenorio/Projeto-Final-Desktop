@@ -1,7 +1,6 @@
 package br.unigran.impl;
 
 import br.unigran.dao.FuncionarioDao;
-import br.unigran.entities.Estoque;
 import br.unigran.entities.Funcionario;
 import br.unigran.persistence.Dao;
 
@@ -20,7 +19,7 @@ public class FuncionarioImpl implements FuncionarioDao {
     }
 
     @Override
-    public List<Funcionario> listar() throws NoResultException {
+    public List<Funcionario> listar(Funcionario builder) throws NoResultException {
         TypedQuery<Funcionario> query = Dao.getInstace().getEm()
                 .createQuery("SELECT f FROM Funcionario f ", Funcionario.class);
         return query.getResultList();

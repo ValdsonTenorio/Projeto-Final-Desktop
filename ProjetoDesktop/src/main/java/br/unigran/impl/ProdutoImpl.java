@@ -1,12 +1,11 @@
 package br.unigran.impl;
 
 import br.unigran.dao.ProdutoDao;
+import br.unigran.entities.Funcionario;
 import br.unigran.entities.Produto;
 import br.unigran.persistence.Dao;
 
-import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class ProdutoImpl implements ProdutoDao {
     }
 
     @Override
-    public List<Produto> listar() throws NoResultException {
+    public List<Produto> listar(Funcionario builder) throws NoResultException {
          TypedQuery<Produto> query = Dao.getInstace().getEm()
                 .createQuery("SELECT p FROM Produto p ", Produto.class);
         return query.getResultList();

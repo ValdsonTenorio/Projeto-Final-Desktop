@@ -1,7 +1,7 @@
 package br.unigran.impl;
 
 import br.unigran.dao.ValidadeDao;
-import br.unigran.entities.Produto;
+import br.unigran.entities.Funcionario;
 import br.unigran.entities.Validade;
 import br.unigran.persistence.Dao;
 
@@ -20,7 +20,7 @@ public class ValidadeImpl implements ValidadeDao {
     }
 
     @Override
-    public List listar() throws NoResultException {
+    public List listar(Funcionario builder) throws NoResultException {
         TypedQuery<Validade> query = Dao.getInstace().getEm()
                 .createQuery("SELECT v FROM Validade v ", Validade.class);
         return query.getResultList();

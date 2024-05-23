@@ -1,8 +1,8 @@
 package br.unigran.impl;
 
 import br.unigran.dao.EstoqueDao;
-import br.unigran.entities.Entrada;
 import br.unigran.entities.Estoque;
+import br.unigran.entities.Funcionario;
 import br.unigran.persistence.Dao;
 
 import javax.persistence.NoResultException;
@@ -20,7 +20,7 @@ public class EstoqueImpl implements EstoqueDao {
     }
 
     @Override
-    public List<Estoque> listar() throws NoResultException {
+    public List<Estoque> listar(Funcionario builder) throws NoResultException {
         TypedQuery<Estoque> query = Dao.getInstace().getEm()
                 .createQuery("SELECT e FROM Estoque e ", Estoque.class);
         return query.getResultList();

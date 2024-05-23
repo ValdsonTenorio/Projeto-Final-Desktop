@@ -2,7 +2,7 @@ package br.unigran.impl;
 
 import br.unigran.dao.EntradaDao;
 import br.unigran.entities.Entrada;
-import br.unigran.entities.Produto;
+import br.unigran.entities.Funcionario;
 import br.unigran.persistence.Dao;
 
 import javax.persistence.NoResultException;
@@ -19,7 +19,7 @@ public class EntradaImpl implements EntradaDao {
     }
 
     @Override
-    public List<Entrada> listar() throws NoResultException {
+    public List<Entrada> listar(Funcionario builder) throws NoResultException {
         TypedQuery<Entrada> query = Dao.getInstace().getEm()
                 .createQuery("SELECT e FROM Entrada e ", Entrada.class);
         return query.getResultList();

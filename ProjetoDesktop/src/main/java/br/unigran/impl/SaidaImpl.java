@@ -1,7 +1,7 @@
 package br.unigran.impl;
 
 import br.unigran.dao.SaidaDao;
-import br.unigran.entities.Produto;
+import br.unigran.entities.Funcionario;
 import br.unigran.entities.Saida;
 import br.unigran.persistence.Dao;
 
@@ -19,7 +19,7 @@ public class SaidaImpl implements SaidaDao {
     }
 
     @Override
-    public List<Saida> listar() throws NoResultException {
+    public List<Saida> listar(Funcionario builder) throws NoResultException {
         TypedQuery<Saida> query = Dao.getInstace().getEm()
                 .createQuery("SELECT s FROM Saida s ", Saida.class);
         return query.getResultList();
