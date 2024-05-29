@@ -4,6 +4,10 @@
 
 package br.unigran;
 
+import br.unigran.view.CadastroGeneric;
+import br.unigran.view.subview.cadastros.CadastroFuncionario;
+import br.unigran.view.subview.cadastros.CadastroProduto;
+
 /**
  *
  * @author laboratorio
@@ -11,6 +15,6 @@ package br.unigran;
 public class ProjetoDesktop {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       new CadastroGeneric("Produto", new CadastroProduto()).setVisible(true);
     }
 }

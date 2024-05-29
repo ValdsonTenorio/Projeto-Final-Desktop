@@ -9,7 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class SaidaImpl implements SaidaDao {
+public abstract class SaidaImpl implements SaidaDao {
     @Override
     public Saida listarId(Long aLong) throws NoResultException {
         TypedQuery<Saida> query = Dao.getInstace().getEm()
@@ -18,7 +18,7 @@ public class SaidaImpl implements SaidaDao {
         return query.getSingleResult();
     }
 
-    @Override
+    
     public List<Saida> listar(Funcionario builder) throws NoResultException {
         TypedQuery<Saida> query = Dao.getInstace().getEm()
                 .createQuery("SELECT s FROM Saida s ", Saida.class);

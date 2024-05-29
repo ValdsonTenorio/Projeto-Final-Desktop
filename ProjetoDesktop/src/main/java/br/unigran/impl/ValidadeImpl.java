@@ -9,7 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class ValidadeImpl implements ValidadeDao {
+public abstract class ValidadeImpl implements ValidadeDao {
 
     @Override
     public Validade listarId(Long aLong) throws NoResultException {
@@ -19,7 +19,7 @@ public class ValidadeImpl implements ValidadeDao {
         return query.getSingleResult();
     }
 
-    @Override
+
     public List listar(Funcionario builder) throws NoResultException {
         TypedQuery<Validade> query = Dao.getInstace().getEm()
                 .createQuery("SELECT v FROM Validade v ", Validade.class);

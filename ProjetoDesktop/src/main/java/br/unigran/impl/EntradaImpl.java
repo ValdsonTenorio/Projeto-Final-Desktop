@@ -9,7 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class EntradaImpl implements EntradaDao {
+public abstract class EntradaImpl implements EntradaDao {
     @Override
     public Entrada listarId(Long aLong) throws NoResultException {
         TypedQuery<Entrada> query = Dao.getInstace().getEm()
@@ -18,7 +18,6 @@ public class EntradaImpl implements EntradaDao {
         return query.getSingleResult();
     }
 
-    @Override
     public List<Entrada> listar(Funcionario builder) throws NoResultException {
         TypedQuery<Entrada> query = Dao.getInstace().getEm()
                 .createQuery("SELECT e FROM Entrada e ", Entrada.class);
