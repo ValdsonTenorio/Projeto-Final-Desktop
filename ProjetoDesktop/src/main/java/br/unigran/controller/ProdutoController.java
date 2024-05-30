@@ -9,16 +9,21 @@ import javax.persistence.NoResultException;
 
 public class ProdutoController {
 
-    ProdutoDao dao = new ProdutoImpl() {
-        @Override
-        public List<Produto> listar(Produto builder) throws NoResultException {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-    };
+    ProdutoDao dao = new ProdutoImpl();
 
     public void salvar(ProdutoDTO prod) throws Exception {
         dao.salvar(prod.builder());
     }
-
-
+    public List<ProdutoDTO> listar() throws Exception {
+        return dao.listar().stream().map(ProdutoDTO::new).toList();
+    }
+    public ProdutoDTO buscar(long id) throws Exception {
+        return new ProdutoDTO(dao.listarId(id));
+    }
+    public void alterar(ProdutoDTO funcionarioDTO) throws Exception {
+         dao.atualiza(funcionarioDTO.builder());
+    }
+       public List<ProdutoDTO> listarNome(String nome) throws Exception {
+        return dao.listarNome(nome).stream().map(ProdutoDTO::new).toList();
+    }
 }

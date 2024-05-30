@@ -28,4 +28,15 @@ public class ProdutoDTO {
         return produto;
     }
 
+    public ProdutoDTO(Produto produto){
+        this.marca = produto.getMarca();
+        this.categoria = produto.getCategoria();
+        this.fornecedor = produto.getFornecedor();
+        this.validadeProd = produto.getValidadeProd();
+        this.qtdeRecebida = produto.getQtdeRecebida();
+        this.qtdeMinEstoque = produto.getQtdeMinEstoque();
+        this.valorProd = produto.getValorProd();
+        this.valorVenda = produto.getValorVenda();
+    }
+    
 }

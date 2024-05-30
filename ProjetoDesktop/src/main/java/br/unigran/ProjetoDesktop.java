@@ -5,8 +5,10 @@
 package br.unigran;
 
 import br.unigran.view.CadastroGeneric;
-import br.unigran.view.subview.cadastros.CadastroFuncionario;
+import br.unigran.view.ListagemGeneric;
 import br.unigran.view.subview.cadastros.CadastroProduto;
+import br.unigran.view.subview.listar.ListarFuncionarios;
+import br.unigran.view.subview.listar.ListarProdutos;
 
 /**
  *
@@ -15,6 +17,6 @@ import br.unigran.view.subview.cadastros.CadastroProduto;
 public class ProjetoDesktop {
 
     public static void main(String[] args) {
-       new CadastroGeneric("Produto", new CadastroProduto()).setVisible(true);
+       new ListagemGeneric(new ListarFuncionarios()).setVisible(true);
     }
 }

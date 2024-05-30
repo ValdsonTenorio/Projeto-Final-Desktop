@@ -19,9 +19,18 @@ public class FuncionarioImpl implements FuncionarioDao {
     }
 
     @Override
-    public List<Funcionario> listar(Funcionario builder) throws NoResultException {
+    public List<Funcionario> listar() throws NoResultException {
         TypedQuery<Funcionario> query = Dao.getInstace().getEm()
                 .createQuery("SELECT f FROM Funcionario f ", Funcionario.class);
         return query.getResultList();
+    }
+    
+    @Override
+    public List<Funcionario> listarNome(String nome) {
+       TypedQuery<Funcionario> query = Dao.getInstace().getEm()
+               .createQuery("SELECT f FROM Funcionario f where f.nome = :name", Funcionario.class)
+               .setParameter("name", "%"+nome+"%");
+       
+       return query.getResultList();
     }
 }

@@ -8,5 +8,4 @@ import javax.persistence.NoResultException;
 import java.util.List;
 
 public interface EstoqueDao extends InterfaceDao<Long, Estoque>{
-    List<Estoque> listar(Funcionario builder) throws NoResultException;
 }

@@ -28,5 +28,5 @@ public interface InterfaceDao<ID, T> {
 
     T listarId(ID id) throws NoResultException;
 
-    List<T> listar(T builder) throws NoResultException;
+    List<T> listar() throws NoResultException;
 }

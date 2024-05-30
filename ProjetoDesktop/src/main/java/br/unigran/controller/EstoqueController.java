@@ -12,8 +12,8 @@ public class EstoqueController {
         dao.salvar(estoque.builder());
         //new EstoqueDao().setCargo("AAAAA").setNomeFuncionario("").builder();
     }
-    public List<EstoqueDTO> listar(EstoqueDTO estoqueDTO) throws Exception {
-        return dao.listar(estoqueDTO.builder()).stream().map(EstoqueDTO::new).toList();
+    public List<EstoqueDTO> listar() throws Exception {
+        return dao.listar().stream().map(EstoqueDTO::new).toList();
     }
     public EstoqueDTO buscar(long id) throws Exception {
         return new EstoqueDTO(dao.listarId(id));

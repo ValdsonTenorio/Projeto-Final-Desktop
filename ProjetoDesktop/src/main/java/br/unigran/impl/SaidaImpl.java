@@ -19,7 +19,7 @@ public abstract class SaidaImpl implements SaidaDao {
     }
 
     
-    public List<Saida> listar(Funcionario builder) throws NoResultException {
+    public List<Saida> listar(Saida builder) throws NoResultException {
         TypedQuery<Saida> query = Dao.getInstace().getEm()
                 .createQuery("SELECT s FROM Saida s ", Saida.class);
         return query.getResultList();

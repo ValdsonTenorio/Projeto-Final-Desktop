@@ -18,7 +18,7 @@ public abstract class EntradaImpl implements EntradaDao {
         return query.getSingleResult();
     }
 
-    public List<Entrada> listar(Funcionario builder) throws NoResultException {
+    public List<Entrada> listar(Entrada builder) throws NoResultException {
         TypedQuery<Entrada> query = Dao.getInstace().getEm()
                 .createQuery("SELECT e FROM Entrada e ", Entrada.class);
         return query.getResultList();

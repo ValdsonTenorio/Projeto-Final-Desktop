@@ -14,8 +14,8 @@ public class FuncionarioController {
         dao.salvar(func.builder());
         //new FuncionarioDTO().setCargo("AAAAA").setNomeFuncionario("").builder();
     }
-    public List<FuncionarioDTO> listar(FuncionarioDTO funcionarioDTO) throws Exception {
-        return dao.listar(funcionarioDTO.builder()).stream().map(FuncionarioDTO::new).toList();
+    public List<FuncionarioDTO> listar() throws Exception {
+        return dao.listar().stream().map(FuncionarioDTO::new).toList();
     }
     public FuncionarioDTO buscar(long id) throws Exception {
         return new FuncionarioDTO(dao.listarId(id));
@@ -25,5 +25,8 @@ public class FuncionarioController {
     }
     public void login(FuncionarioDTO funcionarioDTO) throws Exception {
         EstadoAplicacao.instancia.setLogado(funcionarioDTO.builder());
+    }
+    public List<FuncionarioDTO> listarNome(String nome) throws Exception {
+        return dao.listarNome(nome).stream().map(FuncionarioDTO::new).toList();
     }
 }
