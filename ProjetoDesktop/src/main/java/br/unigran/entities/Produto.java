@@ -22,9 +22,6 @@ public class Produto {
     private Double valorProd;
     private Double valorVenda;
 
-    @ManyToOne
-    private Produto produto;
-
     public Produto(Long codProd, String marca, String categoria, String fornecedor, String validadeProd, int qtdeRecebida, int qtdeMinEstoque, Double valorProd, Double valorVenda) {
         this.codProd = codProd;
         this.marca = marca;

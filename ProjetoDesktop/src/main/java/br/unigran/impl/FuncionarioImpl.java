@@ -33,4 +33,16 @@ public class FuncionarioImpl implements FuncionarioDao {
        
        return query.getResultList();
     }
+
+    @Override
+    public Funcionario buscarPorEmailSenha(String email, String senha) {
+         TypedQuery<Funcionario> query = Dao.getInstace().getEm()
+               .createQuery("SELECT f FROM Funcionario f where f.email = :email and f.senha = :senha", Funcionario.class)
+               .setParameter("email", email)
+               .setParameter("senha", senha);
+         
+         return query.getSingleResult();
+    }
+    
+  
 }

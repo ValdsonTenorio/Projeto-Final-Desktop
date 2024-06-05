@@ -10,8 +10,6 @@ public class Saida {
     private String motivoSaida;
     private String dataSaida;
 
-    @ManyToOne
-    private Saida saida;
 
     public Saida(String motivoSaida, String dataSaida) {
         this.motivoSaida = motivoSaida;
@@ -28,14 +26,6 @@ public class Saida {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Saida getSaida() {
-        return saida;
-    }
-
-    public void setSaida(Saida saida) {
-        this.saida = saida;
     }
 
     public String getMotivoSaida() {

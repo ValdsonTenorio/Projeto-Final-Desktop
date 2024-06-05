@@ -1,16 +1,17 @@
 package br.unigran.utils;
 
+import br.unigran.controllerDTO.FuncionarioDTO;
 import br.unigran.entities.Funcionario;
 
 public class EstadoAplicacao {
     public static EstadoAplicacao instancia = new EstadoAplicacao();
-    Funcionario logado;
+    FuncionarioDTO logado;
     private EstadoAplicacao() {
     }
-    public Funcionario getLogado() {
+    public FuncionarioDTO getLogado() {
         return logado;
     }
-    public EstadoAplicacao setLogado(Funcionario logado) {
+    public EstadoAplicacao setLogado(FuncionarioDTO logado) {
         this.logado = logado;
         return this;
     }

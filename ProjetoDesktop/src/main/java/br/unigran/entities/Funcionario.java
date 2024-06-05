@@ -23,6 +23,7 @@ public class Funcionario implements Serializable{
     private String endereco;
     private String sexo;
     private String telefone;
+    @Column(unique = true)
     private String email;
     private String dataAdmissao;
     private float salario;
@@ -31,8 +32,6 @@ public class Funcionario implements Serializable{
     private String login;
     private String senha;
 
-    @ManyToOne
-    private Funcionario funcionario;
 
     public void setId(long id) {
         this.id = id;

@@ -4,8 +4,11 @@
  */
 package br.unigran.view.subview.cadastros;
 
+import br.unigran.controller.FuncionarioController;
+import br.unigran.controllerDTO.FuncionarioDTO;
 import br.unigran.entities.Funcionario;
 import br.unigran.view.Components.PainelCadastroAbstrato;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -248,8 +251,8 @@ public class CadastroFuncionario extends PainelCadastroAbstrato {
 
     @Override
     public void salvar() {
-        Funcionario funcionario = new Funcionario();
-        funcionario.setNome(nome.getText());
+        FuncionarioDTO funcionario = new FuncionarioDTO();
+        funcionario.setNomeFuncionario(nome.getText());
         funcionario.setCpf(cpf.getText());
         funcionario.setDataNasc(datanasc.getText());
         funcionario.setEndereco(endereco.getText());
@@ -260,6 +263,14 @@ public class CadastroFuncionario extends PainelCadastroAbstrato {
         funcionario.setSalario(Float.parseFloat(salario.getText()));
         funcionario.setCargo(cargo.getText());
         funcionario.setSenha(senha.getText());
+        
+        FuncionarioController controller = new FuncionarioController();
+        try{
+            controller.salvar(funcionario);
+        }catch(Exception e){
+            System.err.println(e);
+            JOptionPane.showMessageDialog(null,"Erro");
+        }
     }
 
     

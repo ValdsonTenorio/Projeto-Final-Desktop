@@ -23,10 +23,11 @@ public class FuncionarioController {
     public void alterar(FuncionarioDTO funcionarioDTO) throws Exception {
          dao.atualiza(funcionarioDTO.builder());
     }
-    public void login(FuncionarioDTO funcionarioDTO) throws Exception {
-        EstadoAplicacao.instancia.setLogado(funcionarioDTO.builder());
-    }
     public List<FuncionarioDTO> listarNome(String nome) throws Exception {
         return dao.listarNome(nome).stream().map(FuncionarioDTO::new).toList();
+    }
+    
+    public FuncionarioDTO buscaPorEmailSenha(String email, String senha){
+        return new FuncionarioDTO(dao.buscarPorEmailSenha(email, senha));
     }
 }
