@@ -15,5 +15,9 @@ import javax.swing.table.DefaultTableModel;
 public abstract class TableListagemAbstrato{
     
     public abstract void setupModel(DefaultTableModel modelo, JTable table);
-    public abstract void listar(DefaultTableModel modelo, JTable table, String nome);
+    public abstract void listar(DefaultTableModel modelo, JTable table, String busca, boolean asc);
+    public abstract void cadastrar();
+    public abstract void excluir(DefaultTableModel modelo, JTable table, int row);
+    public abstract void alterar(DefaultTableModel modelo, JTable table, int row);
+
 }

@@ -6,10 +6,13 @@ package br.unigran.view.subview.listar;
 
 import br.unigran.controller.FuncionarioController;
 import br.unigran.controllerDTO.FuncionarioDTO;
+import br.unigran.view.CadastroGeneric;
 import br.unigran.view.Components.TableListagemAbstrato;
+import br.unigran.view.subview.cadastros.CadastroFuncionario;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,8 +22,9 @@ public class ListarFuncionarios extends TableListagemAbstrato {
 
     @Override
     public void setupModel(DefaultTableModel modelo, JTable table) {
-        modelo.addColumn("Nome");
+        modelo.addColumn("id");
         modelo.addColumn("CPF");
+        modelo.addColumn("Nome");
         modelo.addColumn("Cargo");
     }
 

@@ -43,6 +43,11 @@ public class FuncionarioImpl implements FuncionarioDao {
          
          return query.getSingleResult();
     }
-    
-  
+
+    @Override
+    public List<Funcionario> listarOrdenado(boolean asc) {
+        TypedQuery<Funcionario> query = Dao.getInstace().getEm()
+                .createQuery("SELECT f FROM Funcionario f order by f.nome " + (asc ? "asc" : "desc"), Funcionario.class);
+        return query.getResultList();
+    }
 }

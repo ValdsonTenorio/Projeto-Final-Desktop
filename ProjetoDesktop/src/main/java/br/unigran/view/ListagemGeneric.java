@@ -5,6 +5,8 @@
 package br.unigran.view;
 
 import br.unigran.view.Components.TableListagemAbstrato;
+import br.unigran.view.subview.listar.ListarFuncionarios;
+import br.unigran.view.subview.listar.ListarProdutos;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

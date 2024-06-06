@@ -4,23 +4,32 @@ import br.unigran.entities.Produto;
 
 public class ProdutoDTO {
 
+    public Long codProd;
+
     public String marca;
     public String categoria;
     public String fornecedor;
     public String validadeProd;
-    public int qtdeRecebida;
-    public int qtdeMinEstoque;
+    public Integer qtdeRecebida;
+    public Integer qtdeMinEstoque;
     public Double valorProd;
     public Double valorVenda;
 
     public ProdutoDTO() {
     }
 
-    
-    
+    public Long getCodProd() {
+        return codProd;
+    }
+
+    public void setCodProd(Long id) {
+        this.codProd = id;
+    }
+
     public Produto builder(){
         Produto produto = new Produto();
 
+        produto.setCodProd(codProd);
         produto.setCategoria(categoria);
         produto.setFornecedor(fornecedor);
         produto.setMarca(marca);
@@ -34,6 +43,8 @@ public class ProdutoDTO {
     }
 
     public ProdutoDTO(Produto produto){
+
+        this.codProd = produto.getCodProd();
         this.marca = produto.getMarca();
         this.categoria = produto.getCategoria();
         this.fornecedor = produto.getFornecedor();
@@ -76,19 +87,19 @@ public class ProdutoDTO {
         this.validadeProd = validadeProd;
     }
 
-    public int getQtdeRecebida() {
+    public Integer getQtdeRecebida() {
         return qtdeRecebida;
     }
 
-    public void setQtdeRecebida(int qtdeRecebida) {
+    public void setQtdeRecebida(Integer qtdeRecebida) {
         this.qtdeRecebida = qtdeRecebida;
     }
 
-    public int getQtdeMinEstoque() {
+    public Integer getQtdeMinEstoque() {
         return qtdeMinEstoque;
     }
 
-    public void setQtdeMinEstoque(int qtdeMinEstoque) {
+    public void setQtdeMinEstoque(Integer qtdeMinEstoque) {
         this.qtdeMinEstoque = qtdeMinEstoque;
     }
 

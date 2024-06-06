@@ -34,4 +34,10 @@ public class ProdutoImpl implements ProdutoDao {
        
        return query.getResultList();
     }
+
+    public List<Produto> listarOrdenado(boolean asc) throws NoResultException {
+        TypedQuery<Produto> query = Dao.getInstace().getEm()
+                .createQuery("SELECT p FROM Produto p order by p.marca " + (asc ? "asc" : "desc"), Produto.class);
+        return query.getResultList();
+    }
 }

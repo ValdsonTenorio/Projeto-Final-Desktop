@@ -4,8 +4,8 @@ import br.unigran.entities.Estoque;
 import br.unigran.entities.Funcionario;
 
 public class EstoqueDTO {
-    public long estoqueAtual;
-    public long estoqueAnterior;
+    public Long estoqueAtual;
+    public Long estoqueAnterior;
 
     public Estoque builder() {
         Estoque estoque = new Estoque();

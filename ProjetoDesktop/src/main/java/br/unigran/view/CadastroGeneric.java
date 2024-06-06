@@ -15,19 +15,23 @@ import java.awt.event.WindowEvent;
  *
  * @author laboratorio
  */
-public class CadastroGeneric extends javax.swing.JFrame {
+public class CadastroGeneric extends javax.swing.JDialog {
 
     /**
      * Creates new form CadastroGeneric
      */
     
     PainelCadastroAbstrato painel;
+
     public CadastroGeneric(String title, PainelCadastroAbstrato painel) {
+        setModal(true);
         setTitle(title);
-          
+
         this.painel = painel;
         initComponents();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         add(this.painel);
+
         this.pack();
     }
 
@@ -49,7 +53,7 @@ public class CadastroGeneric extends javax.swing.JFrame {
         salvar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         salvar.setText("Salvar");
         salvar.addActionListener(new java.awt.event.ActionListener() {

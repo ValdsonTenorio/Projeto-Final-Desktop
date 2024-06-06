@@ -3,21 +3,25 @@ package br.unigran.controllerDTO;
 import br.unigran.entities.Funcionario;
 
 public class FuncionarioDTO {
-    public String nomeFuncionario;
-    public String cpf;
-    public String dataNasc;
-    public String endereco;
-    public String sexo;
-    public String telefone;
-    public String email;
-    public String dataAdmissao;
-    public float salario;
-    public String cargo;
-    public String funcao;
-    public String login;
-    public String senha;
+
+    private Long id;
+    private String nomeFuncionario;
+    private String cpf;
+    private String dataNasc;
+    private String endereco;
+    private String sexo;
+    private String telefone;
+    private String email;
+    private String dataAdmissao;
+    private Float salario;
+    private String cargo;
+    private String funcao;
+    private String login;
+    private String senha;
+
     public Funcionario builder() {
         Funcionario funcionario = new Funcionario();
+        funcionario.setId(id);
         funcionario.setNome(nomeFuncionario);
         funcionario.setCpf(cpf);
         funcionario.setDataNasc(dataNasc);

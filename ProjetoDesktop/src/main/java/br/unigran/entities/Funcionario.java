@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Funcionario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(length = 50)
     private String nome;
     @Column(length = 20)
@@ -26,7 +26,7 @@ public class Funcionario implements Serializable{
     @Column(unique = true)
     private String email;
     private String dataAdmissao;
-    private float salario;
+    private Float salario;
     private String cargo;
     private String funcao;
     private String login;
@@ -40,7 +40,7 @@ public class Funcionario implements Serializable{
         return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -108,11 +108,11 @@ public class Funcionario implements Serializable{
         this.dataAdmissao = dataAdmissao;
     }
 
-    public float getSalario() {
+    public Float getSalario() {
         return salario;
     }
 
-    public void setSalario(float salario) {
+    public void setSalario(Float salario) {
         this.salario = salario;
     }
 

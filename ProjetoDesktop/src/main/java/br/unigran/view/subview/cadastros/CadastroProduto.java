@@ -19,8 +19,25 @@ public class CadastroProduto extends PainelCadastroAbstrato {
     /**
      * Creates new form CadastroProduto
      */
+
+    ProdutoDTO produtoDTO;
+
     public CadastroProduto() {
         initComponents();
+    }
+
+    public CadastroProduto(ProdutoDTO dto) {
+        this();
+        produtoDTO = dto;
+
+        marca.setText(produtoDTO.getMarca());
+        categoria.setText(produtoDTO.getCategoria());
+        fornecedor.setText(produtoDTO.getFornecedor());
+        valorProd.setText("" + produtoDTO.getValorProd());
+        valorVenda.setText("" + produtoDTO.getValorVenda());
+        validadeProd.setText(produtoDTO.getValidadeProd());
+        qtdRecebida.setText("" + produtoDTO.getQtdeRecebida());
+        qtdMinEstoque.setText("" + produtoDTO.getQtdeMinEstoque());
     }
 
     /**

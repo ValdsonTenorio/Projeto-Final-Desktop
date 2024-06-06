@@ -33,7 +33,7 @@ public class ListarProdutos extends TableListagemAbstrato {
     }
 
     @Override
-    public void listar(DefaultTableModel modelo, JTable table, String nome) {
+    public void listar(DefaultTableModel modelo, JTable table, String nome, boolean asc) {
         try {
             modelo.setRowCount(0);
 

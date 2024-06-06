@@ -16,11 +16,31 @@ import javax.swing.JOptionPane;
  */
 public class CadastroFuncionario extends PainelCadastroAbstrato {
 
+
+    FuncionarioDTO funcionarioDTO;
+
     /**
      * Creates new form CadastroFuncionario
      */
     public CadastroFuncionario() {
         initComponents();
+    }
+
+    public CadastroFuncionario(FuncionarioDTO funcionarioDTO) {
+        this();
+        this.funcionarioDTO = funcionarioDTO;
+
+        nome.setText(funcionarioDTO.getNomeFuncionario());
+        cpf.setText(funcionarioDTO.getCpf());
+        datanasc.setText(funcionarioDTO.getDataNasc());
+        endereco.setText(funcionarioDTO.getEndereco());
+        sexo.setText(funcionarioDTO.getSexo());
+        telefone.setText(funcionarioDTO.getTelefone());
+        email.setText(funcionarioDTO.getEmail());
+        dataAdmissao.setText(funcionarioDTO.getDataAdmissao());
+        cargo.setText(funcionarioDTO.getCargo());
+        senha.setText(funcionarioDTO.getSenha());
+        salario.setText("" + funcionarioDTO.getSalario());
     }
 
     /**
@@ -252,6 +272,7 @@ public class CadastroFuncionario extends PainelCadastroAbstrato {
     @Override
     public void salvar() {
         FuncionarioDTO funcionario = new FuncionarioDTO();
+
         funcionario.setNomeFuncionario(nome.getText());
         funcionario.setCpf(cpf.getText());
         funcionario.setDataNasc(datanasc.getText());
@@ -263,11 +284,16 @@ public class CadastroFuncionario extends PainelCadastroAbstrato {
         funcionario.setSalario(Float.parseFloat(salario.getText()));
         funcionario.setCargo(cargo.getText());
         funcionario.setSenha(senha.getText());
-        
-        FuncionarioController controller = new FuncionarioController();
-        try{
-            controller.salvar(funcionario);
-        }catch(Exception e){
+
+        try {
+            if (funcionarioDTO != null) {
+                funcionario.setId(funcionarioDTO.getId());
+
+                FuncionarioController.INSTANCE.alterar(funcionario);
+            } else {
+                FuncionarioController.INSTANCE.salvar(funcionario);
+            }
+        } catch (Exception e) {
             System.err.println(e);
             JOptionPane.showMessageDialog(null, "Erro");
         }

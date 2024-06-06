@@ -7,6 +7,13 @@ import br.unigran.impl.EstoqueImpl;
 import java.util.List;
 
 public class EstoqueController {
+
+    public static final EstoqueController INSTANCE = new EstoqueController();
+
+    public EstoqueController(){
+
+    }
+
     EstoqueDao dao = new EstoqueImpl();
     public void salvar(EstoqueDTO estoque) throws Exception {
         dao.salvar(estoque.builder());
