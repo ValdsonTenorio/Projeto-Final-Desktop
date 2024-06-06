@@ -33,7 +33,9 @@ public class FuncionarioDTO {
         funcionario.setSenha(senha);
         return funcionario;
     }
+
     public FuncionarioDTO (Funcionario funcionario){
+        this.id = funcionario.getId();
         this.nomeFuncionario = funcionario.getNome();
         this.cpf = funcionario.getCpf();
         this.dataNasc = funcionario.getDataNasc();
@@ -77,6 +79,14 @@ public class FuncionarioDTO {
     public FuncionarioDTO setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
         return this;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEndereco() {

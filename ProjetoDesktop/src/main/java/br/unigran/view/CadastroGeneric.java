@@ -6,6 +6,11 @@ package br.unigran.view;
 
 import br.unigran.view.Components.PainelCadastroAbstrato;
 
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author laboratorio
@@ -73,6 +78,8 @@ public class CadastroGeneric extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         painel.salvar();
+        JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+        dispose();
     }//GEN-LAST:event_salvarActionPerformed
 
     /**

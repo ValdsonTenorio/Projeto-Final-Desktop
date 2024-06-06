@@ -13,12 +13,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author laboratorio
  */
-public class ListarFuncionarios extends TableListagemAbstrato{
+public class ListarFuncionarios extends TableListagemAbstrato {
 
-       @Override
+    @Override
     public void setupModel(DefaultTableModel modelo, JTable table) {
         modelo.addColumn("Nome");
         modelo.addColumn("CPF");
@@ -26,25 +25,48 @@ public class ListarFuncionarios extends TableListagemAbstrato{
     }
 
     @Override
-    public void listar(DefaultTableModel modelo, JTable table, String nome) {
-           try {
-               modelo.setRowCount(0);
-               
-               FuncionarioController controller = new FuncionarioController();
-               
-               for(FuncionarioDTO funcDTO : controller.listar()) {
-                   modelo.addRow(new Object[]{
-                       funcDTO.getNomeFuncionario(),
-                       funcDTO.getCpf(),
-                       funcDTO.getCargo()
-                   });
-               }
-               
-               
-               controller.listarNome(nome);
-           } catch (Exception ex) {
-               Logger.getLogger(ListarFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
-           }
+    public void cadastrar() {
+        new CadastroGeneric("Cadastrar Funcionáraio", new CadastroFuncionario()).setVisible(true);
     }
-    
+
+    @Override
+    public void excluir(DefaultTableModel modelo, JTable table, int row) {
+        Long id = Long.parseLong(modelo.getValueAt(row, 0).toString());
+        try {
+            FuncionarioController.INSTANCE.remover(FuncionarioController.INSTANCE.buscar(id));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Falha ao remover funcionario", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    @Override
+    public void alterar(DefaultTableModel modelo, JTable table, int row) {
+        Long id = Long.parseLong(modelo.getValueAt(row, 0).toString());
+        try {
+            new CadastroGeneric("Editar Funcionáraio", new CadastroFuncionario(FuncionarioController.INSTANCE.buscar(id))).setVisible(true);
+        } catch (Exception e) {
+
+        }
+    }
+
+    @Override
+    public void listar(DefaultTableModel modelo, JTable table, String nome, boolean asc) {
+        try {
+            modelo.setRowCount(0);
+
+            for (FuncionarioDTO funcDTO : FuncionarioController.INSTANCE.listarOrdenado(asc)) {
+                modelo.addRow(new Object[]{
+                        funcDTO.getId(),
+                        funcDTO.getCpf(),
+                        funcDTO.getNomeFuncionario(),
+                        funcDTO.getCargo()
+                });
+            }
+
+            FuncionarioController.INSTANCE.listarNome(nome);
+        } catch (Exception ex) {
+            Logger.getLogger(ListarFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

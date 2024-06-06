@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Entrada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(length = 50)
     private String dataEntrada;
     @Column(length = 50)
@@ -14,6 +14,9 @@ public class Entrada {
     @Column(length = 50)
     private String secao;
 
+    @ManyToOne
+    @JoinColumn(name = "estoque_id")
+    private Estoque estoque;
 
     public Entrada(String dataEntrada, String notaFiscalAssoc, String secao) {
         this.dataEntrada = dataEntrada;

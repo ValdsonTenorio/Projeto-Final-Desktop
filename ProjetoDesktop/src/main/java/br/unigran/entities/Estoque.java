@@ -16,35 +16,35 @@ import java.util.Set;
 public class Estoque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private long estoqueAtual;
-    private long estoqueAnterior;
+    private Long id;
+    private Long estoqueAtual;
+    private Long estoqueAnterior;
 
-    @OneToMany(mappedBy = "funcionario")
+    @OneToMany(mappedBy = "estoque")
     private Set<Funcionario> funcionarios = new HashSet<>();
 
-    @OneToMany(mappedBy = "produto")
+    @OneToMany(mappedBy = "estoque")
     private Set<Produto> produtos = new HashSet<>();
 
-    @OneToMany(mappedBy = "entrada")
+    @OneToMany(mappedBy = "estoque")
     private Set<Entrada> entradas = new HashSet<>();
 
-    @OneToMany(mappedBy = "saida")
+    @OneToMany(mappedBy = "estoque")
     private Set<Saida> saidas = new HashSet<>();
 
-    public void setEstoqueAtual(long estoqueAtual) {
+    public void setEstoqueAtual(Long estoqueAtual) {
         this.estoqueAtual = estoqueAtual;
     }
 
-    public long getEstoqueAtual() {
+    public Long getEstoqueAtual() {
         return estoqueAtual;
     }
 
-    public long getEstoqueAnterior() {
+    public Long getEstoqueAnterior() {
         return estoqueAnterior;
     }
 
-    public void setEstoqueAnterior(long estoqueAnterior) {
+    public void setEstoqueAnterior(Long estoqueAnterior) {
         this.estoqueAnterior = estoqueAnterior;
     }
 

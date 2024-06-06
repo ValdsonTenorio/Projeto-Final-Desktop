@@ -4,28 +4,31 @@
  */
 package br.unigran.view.subview.listar;
 
+import br.unigran.controller.FuncionarioController;
 import br.unigran.controller.ProdutoController;
+import br.unigran.controllerDTO.FuncionarioDTO;
+import br.unigran.controllerDTO.ProdutoDTO;
+import br.unigran.view.CadastroGeneric;
 import br.unigran.view.Components.TableListagemAbstrato;
 import br.unigran.view.ListagemGeneric;
+import br.unigran.view.subview.cadastros.CadastroFuncionario;
+import br.unigran.view.subview.cadastros.CadastroProduto;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author laboratorio
  */
 public class ListarProdutos extends TableListagemAbstrato {
 
     @Override
     public void setupModel(DefaultTableModel modelo, JTable table) {
-        modelo.addColumn("Id");
+        modelo.addColumn("id");
         modelo.addColumn("Categoria");
         modelo.addColumn("Validade");
-        modelo.addColumn("Quantidade");
         modelo.addColumn("Valor");
     }
 
@@ -33,13 +36,45 @@ public class ListarProdutos extends TableListagemAbstrato {
     public void listar(DefaultTableModel modelo, JTable table, String nome) {
         try {
             modelo.setRowCount(0);
-            
-            ProdutoController controller = new ProdutoController();
-            
-            controller.listarNome(nome);
+
+            for (ProdutoDTO prodDTO : ProdutoController.INSTANCE.listarOrdenado(asc)) {
+                modelo.addRow(new Object[]{
+                        prodDTO.getCodProd(),
+                        prodDTO.getCategoria(),
+                        prodDTO.getValidadeProd(),
+                        prodDTO.getValorProd()
+                });
+            }
+
+            ProdutoController.INSTANCE.listarNome(nome);
         } catch (Exception ex) {
             Logger.getLogger(ListarProdutos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @Override
+    public void cadastrar() {
+        new CadastroGeneric("Cadastrar Produto", new CadastroProduto()).setVisible(true);
+    }
+
+    @Override
+    public void excluir(DefaultTableModel modelo, JTable table, int row) {
+        Long id = Long.parseLong(modelo.getValueAt(row, 0).toString());
+        try {
+            ProdutoController.INSTANCE.remover(ProdutoController.INSTANCE.buscar(id));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Falha ao remover produto", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    @Override
+    public void alterar(DefaultTableModel modelo, JTable table, int row) {
+        Long id = Long.parseLong(modelo.getValueAt(row, 0).toString());
+        try {
+            new CadastroGeneric("Editar Produto", new CadastroProduto(ProdutoController.INSTANCE.buscar(id))).setVisible(true);
+        } catch (Exception e) {
+
+        }
+    }
+
 }

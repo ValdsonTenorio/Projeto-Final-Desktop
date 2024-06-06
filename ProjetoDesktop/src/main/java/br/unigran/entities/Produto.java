@@ -17,12 +17,20 @@ public class Produto {
     private String fornecedor;
     @Column(length = 50)
     private String validadeProd;
-    private int qtdeRecebida;
-    private int qtdeMinEstoque;
+    private Integer qtdeRecebida;
+    private Integer qtdeMinEstoque;
     private Double valorProd;
     private Double valorVenda;
 
-    public Produto(Long codProd, String marca, String categoria, String fornecedor, String validadeProd, int qtdeRecebida, int qtdeMinEstoque, Double valorProd, Double valorVenda) {
+    @ManyToOne
+    @JoinColumn(name = "estoque_id")
+    private Estoque estoque;
+
+    @ManyToOne
+    @JoinColumn(name = "validade_id")
+    private Validade validade;
+
+    public Produto(Long codProd, String marca, String categoria, String fornecedor, String validadeProd, Integer qtdeRecebida, Integer qtdeMinEstoque, Double valorProd, Double valorVenda) {
         this.codProd = codProd;
         this.marca = marca;
         this.categoria = categoria;
@@ -78,19 +86,19 @@ public class Produto {
         this.validadeProd = validadeProd;
     }
 
-    public int getQtdeRecebida() {
+    public Integer getQtdeRecebida() {
         return qtdeRecebida;
     }
 
-    public void setQtdeRecebida(int qtdeRecebida) {
+    public void setQtdeRecebida(Integer qtdeRecebida) {
         this.qtdeRecebida = qtdeRecebida;
     }
 
-    public int getQtdeMinEstoque() {
+    public Integer getQtdeMinEstoque() {
         return qtdeMinEstoque;
     }
 
-    public void setQtdeMinEstoque(int qtdeMinEstoque) {
+    public void setQtdeMinEstoque(Integer qtdeMinEstoque) {
         this.qtdeMinEstoque = qtdeMinEstoque;
     }
 

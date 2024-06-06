@@ -32,6 +32,13 @@ public class Funcionario implements Serializable{
     private String login;
     private String senha;
 
+    @ManyToOne
+    @JoinColumn(name = "estoque_id")
+    private Estoque estoque;
+
+    public Long getId(){
+        return this.id;
+    }
 
     public void setId(long id) {
         this.id = id;

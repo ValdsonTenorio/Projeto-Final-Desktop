@@ -122,15 +122,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FuncionarioController controller = new FuncionarioController();
         
         String emailText = email.getText();
         String senha = pass.getText();
         
         try {
-            EstadoAplicacao.instancia.setLogado(controller.buscaPorEmailSenha(emailText, senha));
+            EstadoAplicacao.instancia.setLogado(FuncionarioController.INSTANCE.buscaPorEmailSenha(emailText, senha));
             
             new ListagemGeneric().setVisible(true);
+            dispose();
         } catch (NoResultException e) {
             JOptionPane.showMessageDialog(null, "Email e/ou senha invalidos ou inexistentes");
         }

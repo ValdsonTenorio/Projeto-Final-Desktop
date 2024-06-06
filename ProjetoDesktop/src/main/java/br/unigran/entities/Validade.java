@@ -13,18 +13,18 @@ import java.util.Set;
 public class Validade{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(length = 30)
     private String data_fabricacao;
 
-    @OneToMany(mappedBy = "produto")
+    @OneToMany(mappedBy = "validade")
     private Set<Produto> produtos = new HashSet<>();
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

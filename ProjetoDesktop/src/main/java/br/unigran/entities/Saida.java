@@ -6,10 +6,13 @@ import javax.persistence.*;
 public class Saida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String motivoSaida;
     private String dataSaida;
 
+    @ManyToOne
+    @JoinColumn(name = "estoque_id")
+    private Estoque estoque;
 
     public Saida(String motivoSaida, String dataSaida) {
         this.motivoSaida = motivoSaida;
@@ -20,11 +23,11 @@ public class Saida {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

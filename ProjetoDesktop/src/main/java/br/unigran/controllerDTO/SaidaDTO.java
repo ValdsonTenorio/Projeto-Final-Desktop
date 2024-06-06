@@ -4,7 +4,7 @@ import br.unigran.entities.Saida;
 
 public class SaidaDTO {
 
-    public long id;
+    public Long id;
     public String motivoSaida;
     public String dataSaida;
 

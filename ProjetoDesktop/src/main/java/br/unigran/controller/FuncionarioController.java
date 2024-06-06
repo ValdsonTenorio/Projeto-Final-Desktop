@@ -10,6 +10,7 @@ import java.util.List;
 
 public class FuncionarioController {
     FuncionarioDao dao = new FuncionarioImpl();
+
     public void salvar(FuncionarioDTO func) throws Exception {
         dao.salvar(func.builder());
         //new FuncionarioDTO().setCargo("AAAAA").setNomeFuncionario("").builder();
