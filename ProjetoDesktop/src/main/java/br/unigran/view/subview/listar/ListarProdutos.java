@@ -8,12 +8,16 @@ import br.unigran.controller.FuncionarioController;
 import br.unigran.controller.ProdutoController;
 import br.unigran.controllerDTO.FuncionarioDTO;
 import br.unigran.controllerDTO.ProdutoDTO;
+import br.unigran.utils.RelatorioUtils;
 import br.unigran.view.CadastroGeneric;
 import br.unigran.view.Components.TableListagemAbstrato;
 import br.unigran.view.ListagemGeneric;
 import br.unigran.view.subview.cadastros.CadastroFuncionario;
 import br.unigran.view.subview.cadastros.CadastroProduto;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -76,5 +80,11 @@ public class ListarProdutos extends TableListagemAbstrato {
 
         }
     }
-
+    public void reportar() {
+        try {
+            JasperViewer.viewReport(RelatorioUtils.relatorio("relatorios/produto.jrxml",new HashMap<>()),false);
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(null, "Erro: %s".formatted(e.getMessage()));
+        }
+    }
 }

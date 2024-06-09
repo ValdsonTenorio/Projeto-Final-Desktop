@@ -74,12 +74,13 @@ public class ListagemGeneric extends javax.swing.JFrame {
         cadastro = new javax.swing.JButton();
         remover = new javax.swing.JButton();
         alterar = new javax.swing.JButton();
+        report = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         listagem = new javax.swing.JMenu();
         product = new javax.swing.JMenuItem();
         employee = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +161,13 @@ public class ListagemGeneric extends javax.swing.JFrame {
             }
         });
 
+        report.setText("Relatorio");
+        report.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportActionPerformed(evt);
+            }
+        });
+
         listagem.setText("Listagem");
 
         product.setText("Produto");
@@ -196,7 +204,8 @@ public class ListagemGeneric extends javax.swing.JFrame {
                             .addComponent(remover, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(alterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(report)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -221,6 +230,8 @@ public class ListagemGeneric extends javax.swing.JFrame {
                     .addComponent(scrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(report)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(alterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(remover)
@@ -284,6 +295,10 @@ public class ListagemGeneric extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_removerActionPerformed
 
+    private void reportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActionPerformed
+        lister.reportar();
+    }//GEN-LAST:event_reportActionPerformed
+
 
     public void update(){
         lister.listar(model, jTable1, jTextField1.getText(), jComboBox1.getSelectedItem().equals("Crescente"));
@@ -339,6 +354,7 @@ public class ListagemGeneric extends javax.swing.JFrame {
     private javax.swing.JButton logout;
     private javax.swing.JMenuItem product;
     private javax.swing.JButton remover;
+    private javax.swing.JButton report;
     private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,5 +19,5 @@ public abstract class TableListagemAbstrato{
     public abstract void cadastrar();
     public abstract void excluir(DefaultTableModel modelo, JTable table, int row);
     public abstract void alterar(DefaultTableModel modelo, JTable table, int row);
-
+    public void reportar(){};
 }

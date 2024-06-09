@@ -6,10 +6,14 @@ package br.unigran.view.subview.listar;
 
 import br.unigran.controller.FuncionarioController;
 import br.unigran.controllerDTO.FuncionarioDTO;
+import br.unigran.utils.RelatorioUtils;
 import br.unigran.view.CadastroGeneric;
 import br.unigran.view.Components.TableListagemAbstrato;
 import br.unigran.view.subview.cadastros.CadastroFuncionario;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -73,4 +77,12 @@ public class ListarFuncionarios extends TableListagemAbstrato {
         }
     }
 
+    @Override
+    public void reportar() {
+        try {
+            JasperViewer.viewReport(RelatorioUtils.relatorio("relatorios/funcionarios.jrxml",new HashMap<>()),false);
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(null, "Erro: %s".formatted(e.getMessage()));
+        }
+    }
 }
